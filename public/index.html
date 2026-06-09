@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Organisasi Kecamatan Tigaraksa - Tempat Anak Muda Berkumpul!</title>
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header & Navbar -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <img src="images/download.png" alt="Logo Forum Tigaraksa"> 
+                    </div>
+                    <span class="logo-text">Forum Tigaraksa</span>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" data-menu="home" class="nav-link active">🏠 Home</a></li>
+                    <li><a href="#" data-menu="tentang" class="nav-link">ℹ️ Tentang Kami</a></li>
+                    <li><a href="#" data-menu="kegiatan" class="nav-link">📅 Kegiatan</a></li>
+                    <li><a href="#" data-menu="galeri" class="nav-link">📸 Galeri</a></li>
+                    <li><a href="#" data-menu="dokumen" class="nav-link">📄 Dokumen</a></li>
+                    <li><a href="#" data-menu="aspirasi" class="nav-link">💬 Aspirasi</a></li>
+                    <!-- SEARCH DIHAPUS -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- HOME -->
+        <section id="home" class="section active">
+            <!-- HERO SECTION (TANPA TOMBOL) -->
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-emoji">
+                        <img src="images/fatigas1.png" alt="Icon Roket">
+                    </div>
+                    <h1>Forum Anak Kecamatan Tigaraksa</h1>
+                    <p>Tempat anak muda berkumpul, berbagi, dan tumbuh bersama!</p>
+                </div>
+            </div>
+
+            <div class="container">
+                <!-- ABOUT SECTION (1 CARD MENUJU TENTANG KAMI) -->
+                <section class="about-section">
+                    <div class="section-header">
+                        <h2>✨ Tentang Forum Ini</h2>
+                        <p>Kenapa harus bergabung?</p>
+                    </div>
+                    <p class="about-text">Forum Organisasi Kecamatan Tigaraksa adalah wadah komunikasi super seru untuk anak-anak muda di kecamatan kita! Di sini kita bisa berbagi informasi kegiatan, upload foto-foto keren, dan suarakan aspirasi kita. Semua untuk membangun komunitas yang lebih solid dan asyik!</p>
+                    
+                    <!-- SATU CARD TENTANG KAMI -->
+                    <a href="#" data-menu="tentang" class="about-card-link" onclick="goToMenu('tentang')">
+                        <div class="role-card card-blue">
+                            <div class="role-icon">👥</div>
+                            <h3>Tentang Kami</h3>
+                            <p>Pelajari lebih lanjut tentang visi, misi, dan nilai-nilai Forum Anak Kecamatan Tigaraksa</p>
+                        </div>
+                    </a>
+                </section>
+
+                <!-- STATS SECTION (3 KOLOM: KEGIATAN, GALERI, DOKUMEN) -->
+                <section class="stats-section">
+                    <div class="stat-item" onclick="goToMenu('kegiatan')">
+                        <div class="stat-number" id="statKegiatan">0</div>
+                        <div class="stat-label">Kegiatan</div>
+                    </div>
+                    <div class="stat-item" onclick="goToMenu('galeri')">
+                        <div class="stat-number" id="statGaleri">0</div>
+                        <div class="stat-label">Galeri</div>
+                    </div>
+                    <div class="stat-item" onclick="goToMenu('dokumen')">
+                        <div class="stat-number" id="statDokumen">0</div>
+                        <div class="stat-label">Dokumen</div>
+                    </div>
+                </section>
+
+                <!-- RECENT ACTIVITY (Kegiatan Terbaru & Terpopuler) -->
+                <section class="recent-activity">
+                    <div class="section-header">
+                        <h2>🔥 Kegiatan Terbaru & Terpopuler</h2>
+                        <p>Jangan ketinggalan update!</p>
+                    </div>
+                    <div id="recentKegiatanContainer" class="kegiatan-grid">
+                        <!-- Akan diisi oleh JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- TENTANG KAMI -->
+        <section id="tentang" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>👥 Tentang Kami</h2>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-card">
+                        <div class="about-card-icon">❓</div>
+                        <h2>Apa Itu Forum Organisasi Kecamatan Tigaraksa?</h2>
+                        <p>Forum Organisasi Kecamatan Tigaraksa adalah platform digital yang dibangun khusus untuk anak-anak muda di kecamatan Tigaraksa. Forum ini adalah tempat berkumpulnya ide-ide segar, cerita-cerita inspiratif, dan kolaborasi untuk membangun komunitas yang lebih baik!</p>
+                    </div>
+
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h2>🎯 Visi & Misi</h2>
+                        </div>
+                        <div class="profile-grid">
+                            <div class="profile-card card-gradient-1">
+                                <div class="profile-icon">🚀</div>
+                                <h3>Visi</h3>
+                                <p>Menjadi pusat ekosistem anak muda yang solid, kreatif, dan berkontribusi positif untuk kemajuan Tigaraksa</p>
+                            </div>
+                            <div class="profile-card card-gradient-2">
+                                <div class="profile-icon">🤝</div>
+                                <h3>Misi</h3>
+                                <p>Memfasilitasi kolaborasi, berbagi cerita inspiratif, dan mengembangkan ide-ide keren bersama anak muda Tigaraksa</p>
+                            </div>
+                            <div class="profile-card card-gradient-3">
+                                <div class="profile-icon">💎</div>
+                                <h3>Nilai Kami</h3>
+                                <p>Transparansi, kreativitas, dukungan, dan kebersamaan adalah fondasi setiap kegiatan kami</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KEGIATAN -->
+        <section id="kegiatan" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>📅 Kegiatan Seru</h2>
+                    <p>Lihat semua kegiatan yang sedang dan akan dilaksanakan</p>
+                </div>
+                
+                <div class="filter-box">
+                    <input type="text" id="kegiatanSearch" placeholder="🔍 Cari kegiatan yang menarik...">
+                </div>
+
+                <div id="kegiatanContainer" class="kegiatan-portal">
+                    <!-- Akan diisi oleh JavaScript -->
+                </div>
+
+                <div class="pagination" id="paginationContainer">
+                    <!-- Akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERI -->
+        <section id="galeri" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>📸 Galeri Foto Asik</h2>
+                    <p>Koleksi momen-momen terbaik dari setiap kegiatan</p>
+                </div>
+                
+                <div id="galeriContainer" class="gallery-grid">
+                    <!-- Akan diisi oleh JavaScript -->
+                </div>
+
+                <div class="gallery-modal" id="galleryModal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="galleryImage">
+                    <div class="modal-caption" id="galleryCaption"></div>
+                    <button class="modal-prev" id="prevImage"><i class="fas fa-chevron-left"></i></button>
+                    <button class="modal-next" id="nextImage"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOKUMEN -->
+        <section id="dokumen" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>📄 Dokumen & File Penting</h2>
+                    <p>Download file-file yang kamu butuhkan di sini</p>
+                </div>
+                
+                <div id="dokumenContainer" class="dokumen-list">
+                    <!-- Akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ASPIRASI -->
+        <section id="aspirasi" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>💬 Kirim Aspirasi & Saran</h2>
+                    <p>Suarakan ide dan masukan kamu untuk organisasi yang lebih baik!</p>
+                </div>
+                
+                <div class="aspirasi-form-wrapper">
+                    <div class="aspirasi-illustration">
+                        <div class="illustration-emoji">💭</div>
+                    </div>
+                    <form id="aspirasiForm" class="aspirasi-form">
+                        <div class="form-group">
+                            <label for="aspNama">👤 Nama Lengkap</label>
+                            <input type="text" id="aspNama" placeholder="Siapa nama kamu?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="aspEmail">📧 Email</label>
+                            <input type="email" id="aspEmail" placeholder="Email kamu..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="aspJudul">✍️ Judul Aspirasi</label>
+                            <input type="text" id="aspJudul" placeholder="Tentang apa saran kamu?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="aspIsi">💡 Isi Aspirasi</label>
+                            <textarea id="aspIsi" placeholder="Ceritakan ide dan masukan kamu di sini..." rows="6" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i> Kirim Aspirasi
+                        </button>
+                    </form>
+
+                    <div id="aspirasiMessage" class="message-box" style="display:none;"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- KONTAK FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-section">
+                    <h2>📞 Hubungi Kami</h2>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon phone">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <p><strong>Telepon:</strong><br>(021) 5934-2456</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <p><strong>WhatsApp:</strong><br>+62 821-1234-5678</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon email">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <p><strong>Email:</strong><br>info@tigaraksa.org</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon clock">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <p><strong>Jam Kerja:</strong><br>Senin - Jumat, 09:00 - 17:00</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon location">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <p><strong>Alamat:</strong><br>Jl. Raya Tigaraksa No. 1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-section">
+                    <h3>Ikuti Kami</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/fa.kectigaraksa/" class="social-btn social-instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-btn social-facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-btn social-twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-btn social-tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Forum Organisasi Kecamatan Tigaraksa 💚 | Dibuat dengan ❤️ untuk Anak Muda Tigaraksa</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api-client.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/kegiatan.js"></script>
+    <script src="js/galeri.js"></script>
+    <script src="js/dokumen.js"></script>
+    <script src="js/aspirasi.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+/* ============================================
+   SUPER ADMIN CSS
+   Mengambil style dari admin.css + tambahan
+   ============================================ */
+
+/* Import style dari admin.css */
+@import url('admin.css');
+
+/* ============================================
+   TAMBAHAN KHUSUS SUPER ADMIN
+   ============================================ */
+
+/* Role badge untuk header */
+.role-badge {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* Warna icon menu Kelola Admin */
+.nav-item[data-menu="users"] i {
+    color: #f59e0b;
+}
+
+/* Toast notification */
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #10b981;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    z-index: 9999;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.toast-notification.error {
+    background: #ef4444;
+}
+
+.toast-notification.warning {
+    background: #f59e0b;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* File upload wrapper */
+.file-input-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.file-input-label {
+    display: block;
+    padding: 1rem;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    background: var(--light);
+    transition: all 0.3s;
+}
+
+.file-input-label:hover {
+    border-color: var(--primary);
+    background: rgba(37, 99, 235, 0.05);
+}
+
+.file-input-wrapper input[type="file"] {
+    display: none;
+}
+
+/* Image preview */
+.image-preview {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.image-preview img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Aspirasi detail modal */
+.aspirasi-detail {
+    padding: 10px;
+}
+
+.detail-row {
+    margin-bottom: 15px;
+}
+
+.detail-row label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: var(--dark);
+}
+
+.detail-row p {
+    margin: 0;
+    padding: 8px;
+    background: var(--light);
+    border-radius: 5px;
+}
+
+/* Responsive untuk toast */
+@media (max-width: 768px) {
+    .toast-notification {
+        bottom: 80px;
+        right: 10px;
+        left: 10px;
+        text-align: center;
+    }
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.admin-table th, .admin-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.admin-table th {
+    background-color: #f2f2f2;
+}

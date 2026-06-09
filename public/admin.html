@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Forum Organisasi Tigaraksa</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Login Form -->
+        <div id="loginSection" class="login-section">
+            <div class="login-box">
+                <h1><i class="fas fa-lock"></i> Admin Panel</h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="loginUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="adminSection" class="admin-wrapper" style="display: none;">
+            <!-- SIDEBAR -->
+            <aside class="admin-sidebar">
+                <div class="sidebar-header">
+                    <h2><i class="fas fa-cog"></i> Admin</h2>
+                </div>
+
+                <nav class="admin-nav">
+                    <a href="#" data-menu="dashboard" class="nav-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" data-menu="kegiatan" class="nav-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Kegiatan</span>
+                    </a>
+                    <a href="#" data-menu="galeri" class="nav-item">
+                        <i class="fas fa-images"></i>
+                        <span>Galeri</span>
+                    </a>
+                    <a href="#" data-menu="dokumen" class="nav-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Dokumen</span>
+                    </a>
+                    <a href="#" data-menu="aspirasi" class="nav-item">
+                        <i class="fas fa-comments"></i>
+                        <span>Aspirasi</span>
+                    </a>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <button id="logoutBtn" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="admin-main">
+                <!-- HEADER -->
+                <header class="admin-header">
+                    <div class="header-content">
+                        <h1>Forum Organisasi Kecamatan Tigaraksa</h1>
+                        <p class="user-info">Selamat datang, <strong>Admin</strong></p>
+                    </div>
+                    
+                </header>
+
+                <!-- PAGE CONTENT -->
+                <div class="admin-content">
+
+                    <!-- DASHBOARD -->
+                    <section id="dashboard" class="admin-page active">
+                        <div class="page-header">
+                            <h2>Dashboard</h2>
+                            <p>Overview statistik forum organisasi</p>
+                        </div>
+
+                        <div class="dashboard-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon calendar">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 id="totalKegiatanStat">0</h3>
+                                    <p>Total Kegiatan</p>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon gallery">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 id="totalGaleriStat">0</h3>
+                                    <p>Total Galeri</p>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon document">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 id="totalDokumenStat">0</h3>
+                                    <p>Total Dokumen</p>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon aspirasi">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 id="totalAspirasimStat">0</h3>
+                                    <p>Total Aspirasi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- KEGIATAN -->
+                    <section id="kegiatan" class="admin-page">
+                        <div class="page-header">
+                            <h2>Manajemen Kegiatan</h2>
+                            <button class="btn-primary" onclick="openKegiatanForm()">
+                                <i class="fas fa-plus"></i> Tambah Kegiatan
+                            </button>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Judul</th>
+                                        <th>Tanggal</th>
+                                        <th>Lokasi</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="kegiatanTable">
+                                    <tr>
+                                        <td colspan="4" style="text-align: center; padding: 2rem;">
+                                            Memuat data...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- GALERI -->
+                    <section id="galeri" class="admin-page">
+                        <div class="page-header">
+                            <h2>Manajemen Galeri</h2>
+                            <button class="btn-primary" onclick="openGaleriForm()">
+                                <i class="fas fa-plus"></i> Tambah Galeri
+                            </button>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Deskripsi</th>
+                                        <th>Kegiatan</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="galeriTable">
+                                    <tr>
+                                        <td colspan="4" style="text-align: center; padding: 2rem;">
+                                            Memuat data...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- DOKUMEN -->
+                    <section id="dokumen" class="admin-page">
+                        <div class="page-header">
+                            <h2>Manajemen Dokumen</h2>
+                            <button class="btn-primary" onclick="openDokumenForm()">
+                                <i class="fas fa-plus"></i> Tambah Dokumen
+                            </button>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Judul</th>
+                                        <th>Tanggal</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dokumenTable">
+                                    <tr>
+                                        <td colspan="4" style="text-align: center; padding: 2rem;">
+                                            Memuk data...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- ASPIRASI -->
+                    <section id="aspirasi" class="admin-page">
+                        <div class="page-header">
+                            <h2>Manajemen Aspirasi</h2>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nama</th>
+                                        <th>Email</th>
+                                        <th>Judul</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="aspirasiTable">
+                                    <tr>
+                                        <td colspan="5" style="text-align: center; padding: 2rem;">
+                                            Memuat data...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="js/api-client.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
